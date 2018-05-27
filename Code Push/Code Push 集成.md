@@ -34,13 +34,15 @@ _`CodePush CLI` 安装及 `App` 注册已完成_
     `pod 'CodePush', :path => '../node_modules/react-native-code-push'`
 并配置 `React`, 如下：
 
-    ```
-    # The target name is most likely the name of your project.
-target 'NumberTileGame' do
 
-  # Your 'node_modules' directory is probably in the root of your project,
-  # but if not, adjust the `:path` accordingly
-  pod 'React', :path => '../node_modules/react-native', :subspecs => [
+    ```
+    
+    # The target name is most likely the name of your project.
+    target 'NumberTileGame' do
+
+     # Your 'node_modules' directory is probably in the root of your project,
+     # but if not, adjust the `:path` accordingly
+     pod 'React', :path => '../node_modules/react-native', :subspecs => [
     'Core',
     'CxxBridge', # Include this for RN >= 0.47
     'DevSupport', # Include this to enable In-App Devmenu if RN >= 0.43
@@ -49,11 +51,11 @@ target 'NumberTileGame' do
     'RCTWebSocket', # Needed for debugging
     'RCTAnimation', # Needed for FlatList and animations running on native UI thread
     # Add any other subspecs you want to use in your project
-  ]
-  # Explicitly include Yoga if you are using RN >= 0.42.0
-  pod 'yoga', :path => '../node_modules/react-native/ReactCommon/yoga'
+     ]
+           # Explicitly include Yoga if you are using RN >= 0.42.0
+     pod 'yoga', :path => '../node_modules/react-native/ReactCommon/yoga'
   
-  end
+     end
     
     ```
 
@@ -80,9 +82,9 @@ target 'NumberTileGame' do
 
     #ifdef DEBUG
     jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/index.bundle?platform=ios&dev=true"];
-#else
+    #else
     jsCodeLocation = [CodePush bundleURL];
-#endif
+    #endif
     
     ```
     
@@ -93,9 +95,9 @@ target 'NumberTileGame' do
 
     #ifdef DEBUG
     jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/index.ios.bundle?platform=ios&dev=true"];
-#else
+    #else
     jsCodeLocation = [CodePush bundleURL];
-#endif
+    #endif
     
     ```
 
@@ -116,8 +118,9 @@ target 'NumberTileGame' do
  1. `android/settings.gradle` 添加 
     
         ```
-    include ':app', ':react-native-code-push'
-project(':react-native-code-push').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-code-push/android/app')
+        
+        include ':app', ':react-native-code-push'
+        project(':react-native-code-push').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-code-        push/android/app')
         ```
     2. `android/app/build.gradle` 添加
     
@@ -147,7 +150,7 @@ apply from: "../../node_modules/react-native-code-push/android/codepush.gradle"
 
     ```
     @Override
-protected List<ReactPackage> getPackages() {
+    protected List<ReactPackage> getPackages() {
     return Arrays.<ReactPackage>asList(
         ...
         new CodePush(BuildConfig.CODEPUSH_KEY, MainApplication.this, BuildConfig.DEBUG), // Add/change this line.
@@ -161,7 +164,7 @@ protected List<ReactPackage> getPackages() {
     
     ```
     @Override
-protected List<ReactPackage> getPackages() {
+    protected List<ReactPackage> getPackages() {
     return Arrays.<ReactPackage>asList(
         ...
         new CodePush(BuildConfig.CODEPUSH_KEY, this, BuildConfig.DEBUG), // Add/change this line.
