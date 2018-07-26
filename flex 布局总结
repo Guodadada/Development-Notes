@@ -1,6 +1,6 @@
-#React Native
+# React Native
 
-##布局总结：
+## 布局总结：
 1. 父视图属性(容器属性)：
 	2. ***`flexDirection(属性定义了父视图中的子元素沿横轴或侧轴方片的排列方式。)`*** enum(`row`, `column`,`row-reverse`,`column-reverse`)
 	3. ***`flexWrap(属性定义了子元素在父视图内是否允许多行排列，默认为nowrap。)`*** enum(`wrap`, `nowrap`)
